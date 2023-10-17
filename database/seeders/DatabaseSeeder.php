@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        factory(App\User::class, 3)->create()->each(function ($user) {$user->articles()->createMany(factory(App\Article::class, 5)->make()->toArray());});
     }
 }
