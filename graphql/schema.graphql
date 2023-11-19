@@ -6,7 +6,7 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 type Query {
     users: [User!]! @all,
-    article: [Article!]! @all
+    articles: [Article!]! @all
 }
 
 type User {
@@ -19,9 +19,12 @@ type User {
 
  type Article {
     id: ID!
+    name: String!
     created_at: DateTime!
     updated_at: DateTime!
  }
+
+ 
 
 # "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
 # scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
@@ -37,25 +40,7 @@ type User {
 #       email: String @eq @rules(apply: ["prohibits:id", "required_without:id", "email"])
 #     ): User @find
 
-#     "List multiple users."
-#     users(
-#       "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
-#       name: String @where(operator: "like")
-#     ): [User!]! @paginate(defaultCount: 10)
-# }
-
-# "Account of a person who utilizes this application."
-# type User {
-#     "Unique primary key."
-#     id: ID!
-
-#     "Non-unique name."
-#     name: String!
-
-#     "Unique email address."
-#     email: String!
-
-#     "When the email was verified."
+#uthe email was verified."
 #     email_verified_at: DateTime
 
 #     "When the account was created."
